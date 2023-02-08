@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var moviesRouter = require('./routes/movies');
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(cors());
 // mongoose connect to mongodb
 var mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://jula0013:MongoTest!.@cluster0.zbytueo.mongodb.net/movies_db?retryWrites=true&w=majority')
